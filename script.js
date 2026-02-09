@@ -30,6 +30,24 @@ themeToggleBtn.addEventListener('click', () => {
     }
 });
 
+// Scientific Toggle Logic
+const sciToggleBtn = document.getElementById('sci-toggle');
+const container = document.querySelector('.calculator-container');
+const basicGrid = document.querySelector('.basic-grid');
+const sciGrid = document.querySelector('.scientific-grid');
+
+sciToggleBtn.addEventListener('click', () => {
+    basicGrid.classList.toggle('hidden');
+    sciGrid.classList.toggle('hidden');
+
+    // Adjust container width for scientific mode
+    if (!sciGrid.classList.contains('hidden')) {
+        container.style.width = '600px'; /* Wider for 7 cols */
+    } else {
+        container.style.width = '350px';
+    }
+});
+
 // Calculator Logic
 // Calculator Logic
 buttons.forEach(button => {

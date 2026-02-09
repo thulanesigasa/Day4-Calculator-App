@@ -80,6 +80,35 @@ body {
     border-color: var(--primary-color);
 }
 
+/* Scientific Toggle */
+.sci-toggle {
+    position: absolute;
+    top: -50px;
+    right: 50px;
+    /* Left of theme toggle */
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.sci-toggle:hover {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
 /* Display */
 .display-container {
     margin-bottom: 20px;
@@ -114,8 +143,8 @@ body.light-theme .history {
 
 /* Scientific Grid Override */
 .buttons-grid.scientific-grid {
-    grid-template-columns: repeat(5, 1fr);
-    /* 5 columns for scientific */
+    grid-template-columns: repeat(7, 1fr);
+    /* 7 columns for isolated sections */
 }
 
 .btn {
@@ -171,17 +200,26 @@ body.light-theme .btn.fn {
     /* Reset to 1 for this grid */
 }
 
-/* Zero spans 1 in scientific 5-col layout */
-.btn.zero {
+/* Basic Grid (4 cols) */
+.buttons-grid.basic-grid .btn.zero {
+    grid-column: span 2;
+    justify-content: flex-start;
+    padding-left: 28px;
+}
+
+/* Scientific Grid (5 cols) */
+.buttons-grid.scientific-grid .btn.zero {
     grid-column: span 1;
     justify-content: center;
     padding-left: 0;
 }
 
-.btn.eq {
+.buttons-grid.scientific-grid .btn.eq {
     grid-column: span 1;
-    /* Standard single column */
-    /* Let's keep it standard grid */
+}
+
+.buttons-grid.basic-grid .btn.eq {
+    grid-column: span 1;
 }
 
 /* Wait, in standard calc:
